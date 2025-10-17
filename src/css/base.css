@@ -17,3 +17,7 @@ body {
   letter-spacing: -0.02em;
   color: var(--black);
 }
+
+.accent-title {
+  color: var(--orange);
+}
