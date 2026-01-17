@@ -1,18 +1,17 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
+@import 'modern-normalize/modern-normalize.css';
+
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
-@import url('./animations.css');
 
 /* Sections style */
 @import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
 @import url('./footer.css');
+@import url('./main_section.css');
+@import url('./exercises.css');
+@import url('./rate.css');
+@import url('./exercises_card.css');
+@import url('./scroll-to-top.css');
+@import url('./favourite_exercises.css');
+
