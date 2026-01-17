@@ -1,5 +1,3 @@
-
-
 const scroller = document.getElementById('progress-scroll');
 
 if (scroller) {
