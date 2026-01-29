@@ -7,7 +7,6 @@
   font-weight: 400;
   font-size: 44px;
   line-height: 48px;
-  letter-spacing: -2%;
 }
 .exercises-section .exercises-title span {
   font-size: 24px;
@@ -139,6 +138,7 @@
   width: 444px;
   height: 242px;
   border-radius: 20px;
+  background-image: url("../img/quote-womens-1x.webp");
   background-image: image-set(
     url("../img/quote-womens-1x.webp") 1x,
     url("../img/quote-womens-2x.webp") 2x

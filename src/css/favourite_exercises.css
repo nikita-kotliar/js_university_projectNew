@@ -240,6 +240,7 @@
 .favourite_exercises .quote-bottom-container .image {
   width: calc(50% - 8px);
   border-radius: 20px;
+  background-image: url("../img/favourite-1x.webp");
   background-image: image-set(
     url("../img/favourite-1x.webp") 1x,
     url("../img/favourite-2x.webp") 2x
@@ -252,7 +253,6 @@
 .favourite_exercises .section_title {
   font-size: 44px;
   line-height: 48px;
-  letter-spacing: -2%;
   font-weight: 400;
   margin-bottom: 32px;
 }
@@ -278,7 +278,7 @@
 
 .favourite_exercises .pagination-btn {
   font-size: 24px;
-  line-height: 32x;
+  line-height: 32px;
   color: var(--gray-color);
   cursor: pointer;
 }

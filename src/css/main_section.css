@@ -21,7 +21,6 @@
   line-height: 74px;
   font-weight: 400;
   font-style: italic;
-  letter-spacing: -2%;
   position: relative;
 }
 
@@ -40,7 +39,6 @@
 
 .main_section .main_text_p {
   font-size: 18px;
-  letter-spacing: -2%;
   max-width: 528px;
 }
 
@@ -69,6 +67,7 @@
   border-radius: 60px;
   width: 100%;
   height: 350px;
+  background-image: url("../img/main-desctop-1x.webp");
   background-image: image-set(
     url("../img/main-desctop-1x.webp") 1x,
     url("../img/main-desctop-2x.webp") 2x
@@ -89,6 +88,7 @@
 .main_section .decoration-img {
   width: 168px;
   height: 100px;
+  background-image: url("../img/text-img-1x.webp");
   background-image: image-set(
     url("../img/text-img-1x.webp") 1x,
     url("../img/text-img-2x.webp") 2x
@@ -131,6 +131,7 @@
   }
   .main_section .main-image {
     height: 550px;
+    background-image: url("../img/main-tablet-1x.webp");
     background-image: image-set(
       url("../img/main-tablet-1x.webp") 1x,
       url("../img/main-tablet-2x.webp") 2x
