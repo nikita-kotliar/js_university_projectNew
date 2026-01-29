@@ -4,6 +4,7 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
             <div>
               <p class="tag">Workout</p>
               <button
+                name="trash"
                 data-id-del-btn="${o}"
                 data-action="delete_fav_card"
                 class="trash-btn">
@@ -15,6 +16,7 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
 
             <div class="actions">
               <button
+                name="start"
                 data-id-start-btn="${o}"
                 data-action="start_exercise_btn"
                 class="details-link">
@@ -42,6 +44,7 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
       `}).join("");n.cardSet.innerHTML=s},N=e=>{const s=e.target.closest('[data-action="start_exercise_btn"]'),t=e.target.closest('[data-action="delete_fav_card"]');if(e.target.closest('[data-component="fav_card"]'),!(!s&&!t)){if(t){$(t.dataset.idDelBtn),p();return}if(s){const i=b(u).find(r=>r._id===s.dataset.idStartBtn);i&&X(i,!0,!0)}}};n.cardSet&&n.cardSet.addEventListener("click",N);function j(e){if(n.paginationCards){if(e<=1){n.paginationCards.innerHTML="";return}n.paginationCards.innerHTML=Array.from({length:e},(s,t)=>`
       <li>
         <button
+          name="pagination"
           class="pagination-btn ${g===t+1?"active":""}"
           data-page="${t+1}">
           ${t+1}
@@ -143,4 +146,4 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
           <svg class="heart-icon" width="20px" height="20px">
             <use href="../img/icons/symbol-defs.svg#icon-heart"></use>
           </svg>`,d=!0),p()}),document.getElementById("close-card").addEventListener("click",()=>{l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable")}),l.addEventListener("click",a=>{a.target===l&&(l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable"))}),document.querySelector(".give-rating-btn").addEventListener("click",()=>{l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable"),K(e._id)})}export{X as h};
-//# sourceMappingURL=exercises_card-Bm4Xd6ST.js.map
+//# sourceMappingURL=exercises_card-HXXI_oFA.js.map
