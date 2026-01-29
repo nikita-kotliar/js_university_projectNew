@@ -282,7 +282,8 @@ function renderPagination(totalPages) {
   const createArrow = (side, icon, targetPage, disabled) => `
     <li>
       <button
-        name="arrow-btn"
+        name="Next page"
+        aria-label="Next page"
         class="pagination-btn pagination-arrow"
         data-page="${targetPage}"
         ${disabled ? 'disabled' : ''}>
@@ -296,7 +297,8 @@ function renderPagination(totalPages) {
   const createPageBtn = p => `
     <li>
       <button
-        name="arrow-btn"
+        name="Next page"
+        aria-label="Next page"
         class="pagination-btn ${p === page ? 'active' : ''}"
         data-page="${p}">
         ${p}
