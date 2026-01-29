@@ -241,10 +241,6 @@
   width: calc(50% - 8px);
   border-radius: 20px;
   background-image: url("../img/favourite-1x.webp");
-  background-image: image-set(
-    url("../img/favourite-1x.webp") 1x,
-    url("../img/favourite-2x.webp") 2x
-  );
   background-size: cover;
   background-position: center;
   height: 141px;

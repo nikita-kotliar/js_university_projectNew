@@ -68,10 +68,6 @@
   width: 100%;
   height: 350px;
   background-image: url("../img/main-desctop-1x.webp");
-  background-image: image-set(
-    url("../img/main-desctop-1x.webp") 1x,
-    url("../img/main-desctop-2x.webp") 2x
-  );
 }
 .main_section .desctop-hidden {
   position: absolute;
@@ -89,10 +85,6 @@
   width: 168px;
   height: 100px;
   background-image: url("../img/text-img-1x.webp");
-  background-image: image-set(
-    url("../img/text-img-1x.webp") 1x,
-    url("../img/text-img-2x.webp") 2x
-  );
   background-size: cover;
   background-position: center;
   border-radius: 20px
@@ -132,10 +124,6 @@
   .main_section .main-image {
     height: 550px;
     background-image: url("../img/main-tablet-1x.webp");
-    background-image: image-set(
-      url("../img/main-tablet-1x.webp") 1x,
-      url("../img/main-tablet-2x.webp") 2x
-    );
     background-size: cover;
     background-position: center;
   }
