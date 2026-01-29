@@ -1,4 +1,4 @@
-import{h as H}from"./assets/exercises_card-BlUP6G50.js";import{i as p}from"./assets/vendor-I1I71QQ2.js";const r={filters:document.querySelector(".filters"),navButtons:document.querySelector(".nav-buttons"),musclesBtn:document.querySelector(".muscles-btn"),exercisesTitle:document.querySelector(".exercises-title"),searchForm:document.querySelector(".search-form"),loadMoreBtn:document.querySelector(".load-more-btn"),quoteContainer:document.querySelector(".quote"),pagination:document.querySelector(".pagination"),exercisesWrapper:document.querySelector(".exercises-div"),exercises:document.querySelector(".exercises-list")};let k=window.innerWidth<768?8:12,n=1,f="Muscles",q="Muscles",j="",b="",w="",m=[];D();x();r.musclesBtn.classList.add("active-btn");r.filters.addEventListener("click",F);r.exercises.addEventListener("click",N);r.searchForm.addEventListener("input",W);var M;(M=r.loadMoreBtn)==null||M.addEventListener("click",loadMore);async function x(e=!0){e&&(n=1,r.exercises.innerHTML="");let t=`https://your-energy.b.goit.study/api/filters?filter=${f}&page=${n}&limit=${k}`;q.trim()&&(t+=`&name=${q}`);const a=await(await fetch(t)).json();if(!a.results.length){_();return}C(a.results),B(a.totalPages)}function C(e){const t=`
+import{h as _}from"./assets/exercises_card-BlUP6G50.js";import{i as p}from"./assets/vendor-I1I71QQ2.js";const r={filters:document.querySelector(".filters"),navButtons:document.querySelector(".nav-buttons"),musclesBtn:document.querySelector(".muscles-btn"),exercisesTitle:document.querySelector(".exercises-title"),searchForm:document.querySelector(".search-form"),loadMoreBtn:document.querySelector(".load-more-btn"),quoteContainer:document.querySelector(".quote"),pagination:document.querySelector(".pagination"),exercisesWrapper:document.querySelector(".exercises-div"),exercises:document.querySelector(".exercises-list")};let k=window.innerWidth<768?8:12,n=1,f="Muscles",q="Muscles",j="",b="",w="",m=[];D();x();r.musclesBtn.classList.add("active-btn");r.filters.addEventListener("click",C);r.exercises.addEventListener("click",F);r.searchForm.addEventListener("input",W);var M;(M=r.loadMoreBtn)==null||M.addEventListener("click",loadMore);async function x(e=!0){e&&(n=1,r.exercises.innerHTML="");let t=`https://your-energy.b.goit.study/api/filters?filter=${f}&page=${n}&limit=${k}`;q.trim()&&(t+=`&name=${q}`);const a=await(await fetch(t)).json();if(!a.results.length){B();return}H(a.results),N(a.totalPages)}function H(e){const t=`
     <ul class="exercises">
       ${e.map(({name:s,filter:a,imgURL:i})=>`
             <li class="exercise">
@@ -12,7 +12,7 @@ import{h as H}from"./assets/exercises_card-BlUP6G50.js";import{i as p}from"./ass
             </li>
           `).join("")}
     </ul>
-  `;r.exercises.insertAdjacentHTML("beforeend",t)}function F(e){var t;e.target.tagName==="BUTTON"&&((t=document.querySelector(".active-btn"))==null||t.classList.remove("active-btn"),e.target.classList.add("active-btn"),e.target.classList.contains("muscles-btn")?f="Muscles":e.target.classList.contains("bodyparts-btn")?f="Body parts":e.target.classList.contains("equipment-btn")&&(f="Equipment"),r.exercisesTitle.textContent="Exercises",r.searchForm.style.display="none",x(!0))}async function N(e){let t=e.target.closest(".exercise");t&&(b=t.querySelector("p").textContent,w=t.querySelector("h1").textContent.toLowerCase(),r.exercisesTitle.innerHTML=`
+  `;r.exercises.insertAdjacentHTML("beforeend",t)}function C(e){var t;e.target.tagName==="BUTTON"&&((t=document.querySelector(".active-btn"))==null||t.classList.remove("active-btn"),e.target.classList.add("active-btn"),e.target.classList.contains("muscles-btn")?f="Muscles":e.target.classList.contains("bodyparts-btn")?f="Body parts":e.target.classList.contains("equipment-btn")&&(f="Equipment"),r.exercisesTitle.textContent="Exercises",r.searchForm.style.display="none",x(!0))}async function F(e){let t=e.target.closest(".exercise");t&&(b=t.querySelector("p").textContent,w=t.querySelector("h1").textContent.toLowerCase(),r.exercisesTitle.innerHTML=`
     <ul class="exercises-title">
       Exercises / <span>${g(w)}</span>
     </ul>
@@ -22,7 +22,7 @@ import{h as H}from"./assets/exercises_card-BlUP6G50.js";import{i as p}from"./ass
     &keyword=${j}
     &page=${n}
     &limit=${k}
-  `.replace(/\s+/g,""),i=await(await fetch(s)).json();if(!i.results.length){_();return}m=i.results,I(i.results),B(i.totalPages)}async function I(e){r.exercises.innerHTML="",m=e;const t=`
+  `.replace(/\s+/g,""),i=await(await fetch(s)).json();if(!i.results.length){B();return}m=i.results,I(i.results),N(i.totalPages)}async function I(e){r.exercises.innerHTML="",m=e;const t=`
     <ul class="exercises-cards">
       ${e.map(({name:s,_id:a,rating:i,burnedCalories:l,bodyPart:o,target:u,time:v})=>{let d=`${l} / ${v} min`,S="...",E=u;return i%1===0&&(i+=".0"),i=parseFloat(i).toFixed(1),s.length>32&&(s=s.slice(0,24)+"..."),window.innerWidth<1440&&(s.length>24&&(s=s.slice(0,20)+"..."),S="...",E="..."),window.innerWidth<768&&(d=`${l} /... min`,s.length>22&&(s=s.slice(0,18)+"...")),`
               <li class="exercise-information" data-id-card="${a}">
@@ -74,10 +74,11 @@ import{h as H}from"./assets/exercises_card-BlUP6G50.js";import{i as p}from"./ass
               </li>
             `}).join("")}
     </ul>
-  `;r.exercises.insertAdjacentHTML("beforeend",t)}function W(e){j=e.target.value.trim().toLowerCase(),n=1,r.exercises.innerHTML="",L(!0)}function B(e){if(!r.pagination)return;if(e<=1){r.pagination.innerHTML="";return}let t="";const s=(o,u,v,d)=>`
+  `;r.exercises.insertAdjacentHTML("beforeend",t)}function W(e){j=e.target.value.trim().toLowerCase(),n=1,r.exercises.innerHTML="",L(!0)}function N(e){if(!r.pagination)return;if(e<=1){r.pagination.innerHTML="";return}let t="";const s=(o,u,v,d)=>`
     <li>
       <button
-        name="arrow-btn"
+        name="Next page"
+        aria-label="Next page"
         class="pagination-btn pagination-arrow"
         data-page="${v}"
         ${d?"disabled":""}>
@@ -89,13 +90,14 @@ import{h as H}from"./assets/exercises_card-BlUP6G50.js";import{i as p}from"./ass
   `,a=o=>`
     <li>
       <button
-        name="arrow-btn"
+        name="Next page"
+        aria-label="Next page"
         class="pagination-btn ${o===n?"active":""}"
         data-page="${o}">
         ${o}
       </button>
     </li>
-  `;t+=s("left","icon-big",n-2,n<=2),t+=s("left","icon-small",n-1,n===1);let i=Math.max(1,n-1),l=Math.min(e,n+1);n===1&&(l=Math.min(e,3)),n===e&&(i=Math.max(1,e-2)),i>1&&(t+=a(1),i>2&&e>4&&(t+='<li class="dots">...</li>'));for(let o=i;o<=l;o++)t+=a(o);l<e&&(l<e-1&&e>4&&(t+='<li class="dots">...</li>'),t+=a(e)),t+=s("right","icon-small",n+1,n===e),t+=s("right","icon-big",n+2,n>=e-1),r.pagination.innerHTML=t}r.pagination.addEventListener("click",e=>{const t=e.target.closest(".pagination-btn");if(!t)return;const s=Number(t.dataset.page);s!==n&&(n=s,r.exercises.innerHTML="",b?L(!1):x(!1))});r.exercises.addEventListener("click",e=>{const t=e.target.closest('[data-action="start"]');if(!t)return;const s=m.find(a=>a._id===t.dataset.id);H(s)});function _(){var e;r.exercises.innerHTML=`
+  `;t+=s("left","icon-big",n-2,n<=2),t+=s("left","icon-small",n-1,n===1);let i=Math.max(1,n-1),l=Math.min(e,n+1);n===1&&(l=Math.min(e,3)),n===e&&(i=Math.max(1,e-2)),i>1&&(t+=a(1),i>2&&e>4&&(t+='<li class="dots">...</li>'));for(let o=i;o<=l;o++)t+=a(o);l<e&&(l<e-1&&e>4&&(t+='<li class="dots">...</li>'),t+=a(e)),t+=s("right","icon-small",n+1,n===e),t+=s("right","icon-big",n+2,n>=e-1),r.pagination.innerHTML=t}r.pagination.addEventListener("click",e=>{const t=e.target.closest(".pagination-btn");if(!t)return;const s=Number(t.dataset.page);s!==n&&(n=s,r.exercises.innerHTML="",b?L(!1):x(!1))});r.exercises.addEventListener("click",e=>{const t=e.target.closest('[data-action="start"]');if(!t)return;const s=m.find(a=>a._id===t.dataset.id);_(s)});function B(){var e;r.exercises.innerHTML=`
     <p class="no-results-paragraph">
       Unfortunately, <span>no results</span> were found.
     </p>
