@@ -146,4 +146,4 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
           <svg class="heart-icon" width="20px" height="20px">
             <use href="../img/icons/symbol-defs.svg#icon-heart"></use>
           </svg>`,d=!0),p()}),document.getElementById("close-card").addEventListener("click",()=>{l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable")}),l.addEventListener("click",a=>{a.target===l&&(l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable"))}),document.querySelector(".give-rating-btn").addEventListener("click",()=>{l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable"),K(e._id)})}export{X as h};
-//# sourceMappingURL=exercises_card-B174i5NT.js.map
+//# sourceMappingURL=exercises_card-HXXI_oFA.js.map
