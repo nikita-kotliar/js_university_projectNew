@@ -140,8 +140,8 @@
   height: 242px;
   border-radius: 20px;
   background-image: image-set(
-    url("../img/quote-womens-1x.png") 1x,
-    url("../img/quote-womens-2x.png") 2x
+    url("../img/quote-womens-1x.webp") 1x,
+    url("../img/quote-womens-2x.webp") 2x
   );
   background-position: center;
   background-size: cover;

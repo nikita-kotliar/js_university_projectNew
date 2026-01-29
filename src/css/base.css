@@ -29,6 +29,7 @@
   color: var(--black-color);
 }
 
+
 body {
   display: flex;
   flex-direction: column;

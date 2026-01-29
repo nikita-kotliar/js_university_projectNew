@@ -60,6 +60,7 @@ const renderCards = arr => {
             <div>
               <p class="tag">Workout</p>
               <button
+                name="trash"
                 data-id-del-btn="${_id}"
                 data-action="delete_fav_card"
                 class="trash-btn">
@@ -71,6 +72,7 @@ const renderCards = arr => {
 
             <div class="actions">
               <button
+                name="start"
                 data-id-start-btn="${_id}"
                 data-action="start_exercise_btn"
                 class="details-link">
@@ -146,6 +148,7 @@ function renderPaginationCards(totalPages) {
     (_, i) => `
       <li>
         <button
+          name="pagination"
           class="pagination-btn ${page === i + 1 ? 'active' : ''}"
           data-page="${i + 1}">
           ${i + 1}
