@@ -65,7 +65,7 @@ const renderCards = arr => {
                 data-action="delete_fav_card"
                 class="trash-btn">
                 <svg class="trash-icon" width="16" height="16">
-                  <use href="../img/icons/symbol-defs.svg#icon-trash"></use>
+                  <use href="/js_university_projectNew/symbol-defs.svg#icon-trash"></use>
                 </svg>
               </button>
             </div>
@@ -78,7 +78,7 @@ const renderCards = arr => {
                 class="details-link">
                 Start
                 <svg class="arrow-icon" width="16" height="16">
-                  <use href="../img/icons/symbol-defs.svg#icon-arrow"></use>
+                  <use href="/js_university_projectNew/symbol-defs.svg#icon-arrow"></use>
                 </svg>
               </button>
             </div>
@@ -86,7 +86,7 @@ const renderCards = arr => {
 
           <div class="exercise-header">
             <svg class="icon-man" width="24" height="24">
-              <use href="../img/icons/symbol-defs.svg#icon-run"></use>
+              <use href="/js_university_projectNew/symbol-defs.svg#icon-run"></use>
             </svg>
             <h2 class="exercise-name">${name}</h2>
           </div>
@@ -212,14 +212,14 @@ export async function displayQuote() {
     const { quote, author } = await fetchQuote();
     refs.quoteContainer.innerHTML = `
       <svg width="32" height="32" class="quote-text-icon">
-        <use href="../img/icons/symbol-defs.svg#icon-run"></use>
+        <use href="/js_university_projectNew/symbol-defs.svg#icon-run"></use>
       </svg>
       <div>
         <h3 class="main-quote-title">Quote of the day</h3>
         <p class="main-quote-text">${quote}</p>
         <p class="main-quote-author">${author}</p>
         <svg width="24" height="24" class="quote-text-icon-commas">
-          <use href="../img/icons/symbol-defs.svg#icon-commas"></use>
+          <use href="/js_university_projectNew/symbol-defs.svg#icon-commas"></use>
         </svg>
       </div>
     `;

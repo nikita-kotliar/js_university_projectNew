@@ -186,7 +186,7 @@ async function makeExercisesCards(response) {
                     <span class="rating">
                       ${rating}
                       <svg class="star-icon" width="14" height="14">
-                        <use href="../img/icons/symbol-defs.svg#icon-star"></use>
+                        <use href="/js_university_projectNew/symbol-defs.svg#icon-star"></use>
                       </svg>
                     </span>
                   </div>
@@ -197,14 +197,14 @@ async function makeExercisesCards(response) {
                     class="details-link">
                     Start
                     <svg class="arrow-icon" width="16" height="16">
-                      <use href="../img/icons/symbol-defs.svg#icon-arrow"></use>
+                      <use href="/js_university_projectNew/symbol-defs.svg#icon-arrow"></use>
                     </svg>
                   </button>
                 </div>
 
                 <div class="exercise-header">
                   <svg class="icon-man" fill="white" width="24" height="24">
-                    <use href="../img/icons/symbol-defs.svg#icon-run"></use>
+                    <use href="/js_university_projectNew/symbol-defs.svg#icon-run"></use>
                   </svg>
                   <h2 class="exercise-name">
                     ${capitalize(name)}
@@ -287,7 +287,7 @@ function renderPagination(totalPages) {
         data-page="${targetPage}"
         ${disabled ? 'disabled' : ''}>
         <svg class="${icon} ${side}" width="20" height="20">
-          <use href="../img/icons/symbol-defs.svg#${icon}"></use>
+          <use href="/js_university_projectNew/symbol-defs.svg#${icon}"></use>
         </svg>
       </button>
     </li>
@@ -392,14 +392,14 @@ export async function displayQuote() {
     const quoteData = await fetchQuote();
     const quoteMarkup = `
       <svg width="32" height="32" class="quote-text-icon">
-        <use href="../img/icons/symbol-defs.svg#icon-run"></use>
+        <use href="/js_university_projectNew/symbol-defs.svg#icon-run"></use>
       </svg>
       <div>
         <h3 class="main-quote-title">Quote of the day</h3>
         <p class="main-quote-text">${quoteData.quote}</p>
         <p class="main-quote-author">${quoteData.author}</p>
         <svg width="24" height="24" class="quote-text-icon-commas">
-          <use href="../img/icons/symbol-defs.svg#icon-commas"></use>
+          <use href="/js_university_projectNew/symbol-defs.svg#icon-commas"></use>
         </svg>
       </div>
     `;
