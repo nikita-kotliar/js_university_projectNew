@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 32px;
 }
-.main_section .main_text span {
+.main_section .main_text .span {
   max-width: 639px;
 }
 .main_section_container {

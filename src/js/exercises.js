@@ -67,9 +67,9 @@ function makeFilterCards(items) {
             <li class="exercise">
               <img src="${imgURL}" alt="${name}" loading="lazy" class="exercise-image">
               <div class="exercise-info">
-                <h1 class="exercise-subtitle">
+                <h2 class="exercise-subtitle">
                   ${name[0].toUpperCase() + name.slice(1)}
-                </h1>
+                </h2>
                 <p class="exercise-filter">${filter}</p>
               </div>
             </li>
