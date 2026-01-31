@@ -49,7 +49,7 @@ function renderModal(data, isFavouritePage) {
   const markup = `
     <div class="exr-card-cont">
       <button name="close" id="close-card" type="button" class="close-card-button">
-      <svg class="close-card-icon" width="12px" height="12px">
+      <svg class="close-card-icon"">
         <use href="/js_university_projectNew/symbol-defs.svg#icon-x"></use>
       </svg>
       </button>

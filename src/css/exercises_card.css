@@ -40,7 +40,8 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow: auto;
 }
@@ -83,6 +84,8 @@
 
 .exr-card-backdrop .close-card-button svg {
   stroke: var(--white-color);
+  width: 12px;
+  height: 12px;
 }
 
 .exr-card-backdrop .exr-image {
@@ -174,6 +177,14 @@
 }
 
 @media (max-width: 767px) {
+  .exr-card-backdrop .close-card-button svg {
+    width: 10px;
+    height: 10px;
+  }
+  .exr-card-backdrop .close-card-button {
+    top: 14px;
+    right: 14px;
+  }
   .exr-card-backdrop .exr-card-cont {
     flex-direction: column;
     width: 335px;
@@ -183,11 +194,10 @@
   .exr-card-backdrop .exr-image {
     width: 295px;
     height: 258px;
-
   }
   .exr-card-backdrop .exercise-name {
     font-size: 20px;
-    line-height: 20px
+    line-height: 20px;
   }
   .exr-card-backdrop .exr-description {
     margin-bottom: 52px;
