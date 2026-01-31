@@ -64,7 +64,21 @@ function makeFilterCards(items) {
         .map(({ name, filter, imgURL }) => {
           return `
             <li class="exercise">
-              <img src="${imgURL}" alt="${name}" loading="lazy" class="exercise-image">
+              <img
+                src="${imgURL}?w=290&h=242"
+                srcset="
+                  ${imgURL}?w=335&h=225 335w,
+                  ${imgURL}?w=225&h=225 225w,
+                  ${imgURL}?w=290&h=242 290w
+                "
+                sizes="(max-width: 767px) 335px,
+                       (min-width: 768px) and (max-width: 1439px) 225px,
+                       290px"
+                alt="${name}"
+                loading="lazy"
+                class="exercise-image"
+              />
+
               <div class="exercise-info">
                 <h2 class="exercise-subtitle">
                   ${name[0].toUpperCase() + name.slice(1)}
@@ -385,4 +399,3 @@ function showNoResults() {
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1);
 }
-
