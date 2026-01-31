@@ -68,7 +68,7 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
           </svg>`)}function oe(e,s){let t=e.rating;t%1===0&&(t+=".0"),t=parseFloat(t).toFixed(1);const o=`
     <div class="exr-card-cont">
       <button name="close" id="close-card" type="button" class="close-card-button">
-      <svg class="close-card-icon" width="12px" height="12px">
+      <svg class="close-card-icon"">
         <use href="/js_university_projectNew/symbol-defs.svg#icon-x"></use>
       </svg>
       </button>
@@ -146,4 +146,4 @@ import{i as v}from"./vendor-I1I71QQ2.js";(function(){const s=document.createElem
           <svg class="heart-icon" width="20px" height="20px">
             <use href="/js_university_projectNew/symbol-defs.svg#icon-heart"></use>
           </svg>`,d=!0),m()}),document.getElementById("close-card").addEventListener("click",()=>{l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable")}),l.addEventListener("click",a=>{a.target===l&&(l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable"))}),document.querySelector(".give-rating-btn").addEventListener("click",()=>{l.classList.remove("card-is-open"),document.body.classList.remove("not-scrollable"),se(e._id)})}export{H as d,ie as h};
-//# sourceMappingURL=exercises_card-nG6lz2Kr.js.map
+//# sourceMappingURL=exercises_card-BZHY2mgr.js.map
