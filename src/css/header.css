@@ -124,6 +124,9 @@
     width: 210px;
     height: 100%;
     padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     background-color: var(--black-color);
     backdrop-filter: blur(10px);
