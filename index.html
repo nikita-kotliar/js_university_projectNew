@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/js_university_projectNew/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <noscript>
+    <title>Vanilla App Template</title>
+    <noscript>
     </noscript>
     <script type="module" crossorigin src="/js_university_projectNew/index.js"></script>
     <link rel="modulepreload" crossorigin href="/js_university_projectNew/assets/vendor-I1I71QQ2.js">
-    <link rel="modulepreload" crossorigin href="/js_university_projectNew/assets/exercises_card-QJvDtgA3.js">
+    <link rel="modulepreload" crossorigin href="/js_university_projectNew/assets/exercises_card-CrNWY-mT.js">
     <link rel="stylesheet" crossorigin href="/js_university_projectNew/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/js_university_projectNew/assets/exercises_card-DGZzSQOr.css">
+    <link rel="stylesheet" crossorigin href="/js_university_projectNew/assets/exercises_card-8unVYtw4.css">
   </head>
   <body>
     <header class="header">
@@ -51,6 +51,7 @@
           aria-label="social-media"
           href="https://www.facebook.com/goITclub/"
           target="_blank"
+          rel="noopener noreferrer"
           class="social-media-link"
         >
           <svg width="28" height="28" class="social-media-icon">
@@ -63,6 +64,7 @@
           aria-label="social-media"
           href="https://www.instagram.com/goitclub/"
           target="_blank"
+          rel="noopener noreferrer"
           class="social-media-link"
         >
           <svg width="28" height="28" class="social-media-icon">
@@ -76,6 +78,7 @@
           aria-label="social-media"
           href="https://www.youtube.com/c/GoIT"
           target="_blank"
+          rel="noopener noreferrer"
           class="social-media-link"
         >
           <svg width="28" height="28" class="social-media-icon">
@@ -131,6 +134,7 @@
           aria-label="social-media"
           href="https://www.facebook.com/goITclub/"
           target="_blank"
+          rel="noopener noreferrer"
           class="social-media-link"
         >
           <svg width="28" height="28" class="social-media-icon">
@@ -143,6 +147,7 @@
           aria-label="social-media"
           href="https://www.instagram.com/goitclub/"
           target="_blank"
+          rel="noopener noreferrer"
           class="social-media-link"
         >
           <svg width="28" height="28" class="social-media-icon">
@@ -155,6 +160,7 @@
           aria-label="social-media"
           href="https://www.youtube.com/c/GoIT"
           target="_blank"
+          rel="noopener noreferrer"
           class="social-media-link"
         >
           <svg width="28" height="28" class="social-media-icon">
@@ -174,7 +180,9 @@
       <div class="main_text">
         <div class="span">
           <svg width="59" height="59" class="h1-icon">
-            <use href="/js_university_projectNew/symbol-defs.svg#icon-sun"></use>
+            <use
+              href="/js_university_projectNew/symbol-defs.svg#icon-sun"
+            ></use>
           </svg>
           <h1>Get Body in shape, Stay healthy</h1>
         </div>
@@ -184,24 +192,42 @@
         </p>
       </div>
       <div class="main_decoration">
-        <div
-          class="decoration-img"
-        ></div>
-        <div class="text">
-          <p>#Sport</p>
-          <p>#Healthy</p>
-          <p>#Workout</p>
-          <p>#Diet</p>
+        <div class="decoration-image-wrapper">
+          <img
+            src="../img/text-img-1x.webp"
+            srcset="../img/text-img-1x.webp 1x, ../img/text-img-2x.webp 2x"
+            alt="Fitness text decoration"
+            class="decoration-image"
+          />
         </div>
+        <ul class="text">
+          <li>#Sport</li>
+          <li>#Healthy</li>
+          <li>#Workout</li>
+          <li>#Diet</li>
+        </ul>
       </div>
     </div>
-    <div class="main-image"></div>
-    <div class="desctop-hidden">
-      <p>#Sport</p>
-      <p>#Healthy</p>
-      <p>#Workout</p>
-      <p>#Diet</p>
-    </div>
+
+    <picture class="main-image-wrapper">
+      <source
+        media="(max-width: 1439px)"
+        srcset="../img/main-tablet-1x.webp 1x, ../img/main-tablet-2x.webp 2x"
+      />
+
+      <img
+        src="../img/main-desctop-1x.webp"
+        srcset="../img/main-desctop-1x.webp 1x, ../img/main-desctop-2x.webp 2x"
+        alt="Fitness lifestyle"
+        class="main-image desktop"
+      />
+    </picture>
+    <ul class="desctop-hidden">
+      <li>#Sport</li>
+      <li>#Healthy</li>
+      <li>#Workout</li>
+      <li>#Diet</li>
+    </ul>
   </div>
 </section>
 
@@ -257,7 +283,13 @@
     <div class="exercises-container">
       <div class="quote-container">
         <div class="quote"></div>
-        <div class="image"></div>
+        <div class="image-wrapper">
+          <img
+            src="../img/quote-womens-1x.webp"
+            srcset="../img/quote-womens-1x.webp 1x, ../img/quote-womens-2x.webp 2x"
+            alt="women"
+          />
+        </div>
         <div class="main-text">
           <svg width="32" height="32" class="main-text-icon">
             <use href="/js_university_projectNew/symbol-defs.svg#icon-gym"></use>
@@ -356,15 +388,18 @@
   <div class="container">
     <div class="footer-main">
       <div>
-        <svg class="logo-icon" width="132" height="24">
-          <use href="/js_university_projectNew/symbol-defs.svg#icon-logo"></use>
-        </svg>
+        <a aria-label="main" class="logo" href="/js_university_projectNew/index.html">
+          <svg class="logo-icon" width="132" height="24">
+            <use href="/js_university_projectNew/symbol-defs.svg#icon-logo"></use>
+          </svg>
+        </a>
         <ul class="social-media-list">
           <li>
             <a
               aria-label="social-media"
               href="https://www.facebook.com/goITclub/"
               target="_blank"
+              rel="noopener noreferrer"
               class="social-media-link"
             >
               <svg width="28" height="28" class="social-media-icon">
@@ -377,6 +412,7 @@
               aria-label="social-media"
               href="https://www.instagram.com/goitclub/"
               target="_blank"
+              rel="noopener noreferrer"
               class="social-media-link"
             >
               <svg width="28" height="28" class="social-media-icon">
@@ -389,6 +425,7 @@
               aria-label="social-media"
               href="https://www.youtube.com/c/GoIT"
               target="_blank"
+              rel="noopener noreferrer"
               class="social-media-link"
             >
               <svg width="28" height="28" class="social-media-icon">
@@ -435,6 +472,6 @@
   </div>
 </footer>
 
-
+
   </body>
 </html>
