@@ -1,5 +1,5 @@
 import handlerStartBtn from './exercises_card.js';
-
+import { displayQuote } from './localalStorageLogical.js';
 const refs = {
   filters: document.querySelector('.filters'),
   navButtons: document.querySelector('.nav-buttons'),
@@ -13,7 +13,8 @@ const refs = {
   exercises: document.querySelector('.exercises-list'),
 };
 
-let limit = window.innerWidth < 768 ? 8 : 12;
+let limit = window.innerWidth < 768 ? 9 : 12;
+let limitx = window.innerWidth < 768 ? 8 : 10;
 let page = 1;
 
 let currentFilter = 'Muscles';
@@ -23,7 +24,7 @@ let filter = '';
 let name = '';
 let localResponse = [];
 
-displayQuote();
+displayQuote(refs.quoteContainer);
 fetchFilters();
 refs.musclesBtn.classList.add('active-btn');
 
@@ -31,7 +32,6 @@ refs.filters.addEventListener('click', pressFilterBtn);
 refs.exercises.addEventListener('click', loadExercises);
 refs.searchForm.addEventListener('input', onLiveSearch);
 refs.loadMoreBtn?.addEventListener('click', loadMore);
-
 
 async function fetchFilters(reset = true) {
   if (reset) {
@@ -47,7 +47,6 @@ async function fetchFilters(reset = true) {
 
   const res = await fetch(url);
   const data = await res.json();
-
 
   if (!data.results.length) {
     showNoResults();
@@ -112,7 +111,7 @@ async function loadExercises(event) {
   const filterEl = card.querySelector('.exercise-filter');
   const nameEl = card.querySelector('.exercise-subtitle');
 
-  if (!filterEl || !nameEl) return; 
+  if (!filterEl || !nameEl) return;
 
   filter = filterEl.textContent;
   name = nameEl.textContent.toLowerCase();
@@ -131,7 +130,6 @@ async function loadExercises(event) {
   await fetchExercises();
 }
 
-
 async function fetchExercises(reset = true) {
   if (reset) localResponse = [];
 
@@ -143,7 +141,7 @@ async function fetchExercises(reset = true) {
     ${preparedFilter}=${name}
     &keyword=${keyWord}
     &page=${page}
-    &limit=${limit}
+    &limit=${limitx}
   `.replace(/\s+/g, '');
 
   const res = await fetch(url);
@@ -170,7 +168,7 @@ async function makeExercisesCards(response) {
           ({ name, _id, rating, burnedCalories, bodyPart, target, time }) => {
             let calories = `${burnedCalories} / ${time} min`;
 
-            let bodyPartLet = "...";
+            let bodyPartLet = '...';
             let targetLet = target;
             if (rating % 1 === 0) rating += '.0';
             rating = parseFloat(rating).toFixed(1);
@@ -260,7 +258,7 @@ function onSearch(event) {
 
   keyWord = event.target.searchQuery.value.trim();
   page = 1;
-  filter = ''; 
+  filter = '';
   currentFilter = '';
   refs.exercises.innerHTML = '';
   refs.exercisesTitle.textContent = `Search results for "${keyWord}"`;
@@ -275,7 +273,6 @@ function onSearch(event) {
     fetchExercises(true);
   }
 }
-
 
 function renderPagination(totalPages) {
   if (!refs.pagination) return;
@@ -348,7 +345,6 @@ function renderPagination(totalPages) {
   refs.pagination.innerHTML = html;
 }
 
-
 refs.pagination.addEventListener('click', e => {
   const btn = e.target.closest('.pagination-btn');
   if (!btn) return;
@@ -382,7 +378,7 @@ function showNoResults() {
   `;
   refs.loadMoreBtn?.style.setProperty('display', 'none');
   if (refs.pagination) {
-    refs.pagination.innerHTML = ''; 
+    refs.pagination.innerHTML = '';
   }
 }
 
@@ -390,30 +386,3 @@ function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-export async function fetchQuote() {
-  const url = 'https://your-energy.b.goit.study/api/quote';
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
-export async function displayQuote() {
-  try {
-    const quoteData = await fetchQuote();
-    const quoteMarkup = `
-      <svg width="32" height="32" class="quote-text-icon">
-        <use href="/js_university_projectNew/symbol-defs.svg#icon-run"></use>
-      </svg>
-      <div>
-        <h3 class="main-quote-title">Quote of the day</h3>
-        <p class="main-quote-text">${quoteData.quote}</p>
-        <p class="main-quote-author">${quoteData.author}</p>
-        <svg width="24" height="24" class="quote-text-icon-commas">
-          <use href="/js_university_projectNew/symbol-defs.svg#icon-commas"></use>
-        </svg>
-      </div>
-    `;
-    refs.quoteContainer.innerHTML = quoteMarkup;
-  } catch (error) {
-    console.error('Error fetching or displaying quote:', error);
-  }
-}

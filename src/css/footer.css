@@ -206,4 +206,11 @@
   .footer .bottom-text-last {
     width: unset;
   }
+  .footer .footer-send-button {
+    width: 100%;
+    padding: 12px 57px;
+  }
+  .footer .footer-input {
+    width: 100%;
+  }
 }

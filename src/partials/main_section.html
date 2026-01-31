@@ -4,7 +4,9 @@
       <div class="main_text">
         <div class="span">
           <svg width="59" height="59" class="h1-icon">
-            <use href="/js_university_projectNew/symbol-defs.svg#icon-sun"></use>
+            <use
+              href="/js_university_projectNew/symbol-defs.svg#icon-sun"
+            ></use>
           </svg>
           <h1>Get Body in shape, Stay healthy</h1>
         </div>
@@ -14,23 +16,41 @@
         </p>
       </div>
       <div class="main_decoration">
-        <div
-          class="decoration-img"
-        ></div>
-        <div class="text">
-          <p>#Sport</p>
-          <p>#Healthy</p>
-          <p>#Workout</p>
-          <p>#Diet</p>
+        <div class="decoration-image-wrapper">
+          <img
+            src="../img/text-img-1x.webp"
+            srcset="../img/text-img-1x.webp 1x, ../img/text-img-2x.webp 2x"
+            alt="Fitness text decoration"
+            class="decoration-image"
+          />
         </div>
+        <ul class="text">
+          <li>#Sport</li>
+          <li>#Healthy</li>
+          <li>#Workout</li>
+          <li>#Diet</li>
+        </ul>
       </div>
     </div>
-    <div class="main-image"></div>
-    <div class="desctop-hidden">
-      <p>#Sport</p>
-      <p>#Healthy</p>
-      <p>#Workout</p>
-      <p>#Diet</p>
-    </div>
+
+    <picture class="main-image-wrapper">
+      <source
+        media="(max-width: 1439px)"
+        srcset="../img/main-tablet-1x.webp 1x, ../img/main-tablet-2x.webp 2x"
+      />
+
+      <img
+        src="../img/main-desctop-1x.webp"
+        srcset="../img/main-desctop-1x.webp 1x, ../img/main-desctop-2x.webp 2x"
+        alt="Fitness lifestyle"
+        class="main-image desktop"
+      />
+    </picture>
+    <ul class="desctop-hidden">
+      <li>#Sport</li>
+      <li>#Healthy</li>
+      <li>#Workout</li>
+      <li>#Diet</li>
+    </ul>
   </div>
 </section>

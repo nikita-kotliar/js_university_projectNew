@@ -2,7 +2,13 @@ import handlerStartBtn from './exercises_card.js';
 import * as localalStorageLogical from './localalStorageLogical';
 import * as header from './header';
 
-import { getFav, removeFromFav, LS_FAV } from './localalStorageLogical.js';
+import {
+  getFav,
+  removeFromFav,
+  LS_FAV,
+  displayQuote,
+} from './localalStorageLogical.js';
+
 
 const refs = {
   cardSet: document.querySelector('.fav_card_list'),
@@ -200,33 +206,6 @@ export const checkStorage = () => {
   }
 };
 
-/* ================= QUOTE ================= */
-
-export async function fetchQuote() {
-  const res = await fetch('https://your-energy.b.goit.study/api/quote');
-  return res.json();
-}
-
-export async function displayQuote() {
-  try {
-    const { quote, author } = await fetchQuote();
-    refs.quoteContainer.innerHTML = `
-      <svg width="32" height="32" class="quote-text-icon">
-        <use href="/js_university_projectNew/symbol-defs.svg#icon-run"></use>
-      </svg>
-      <div>
-        <h3 class="main-quote-title">Quote of the day</h3>
-        <p class="main-quote-text">${quote}</p>
-        <p class="main-quote-author">${author}</p>
-        <svg width="24" height="24" class="quote-text-icon-commas">
-          <use href="/js_university_projectNew/symbol-defs.svg#icon-commas"></use>
-        </svg>
-      </div>
-    `;
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 window.addEventListener('resize', () => {
   page = 1;
@@ -234,4 +213,4 @@ window.addEventListener('resize', () => {
 });
 
 checkStorage();
-displayQuote();
+displayQuote(refs.quoteContainer);

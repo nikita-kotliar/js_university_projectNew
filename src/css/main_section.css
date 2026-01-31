@@ -7,9 +7,11 @@
   flex-direction: column;
   gap: 32px;
 }
+
 .main_section .main_text .span {
   max-width: 639px;
 }
+
 .main_section_container {
   display: flex;
   justify-content: space-between;
@@ -29,6 +31,7 @@
   flex-direction: column;
   gap: 20px;
 }
+
 .main_section .h1-icon {
   stroke: var(--black-color);
   flex-shrink: 0;
@@ -52,56 +55,69 @@
 .main_section .main_decoration .text {
   display: flex;
   align-items: flex-end;
+  justify-content: end;
   gap: 8px;
   width: 197px;
   flex-wrap: wrap;
 }
 
-.main_section .main_decoration p {
+.main_section .main_decoration li {
   padding: 3px 15px;
   border-radius: 30px;
   border: 1px solid var(--black-color);
 }
 
-.main_section .main-image {
-  border-radius: 60px;
+.main-image-wrapper {
   width: 100%;
-  height: 350px;
-  background-image: url("../img/main-desctop-1x.webp");
+  border-radius: 60px;
+  overflow: hidden;
 }
+
+.main-image-wrapper img.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.decoration-image-wrapper {
+  width: 168px;
+  height: 100px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.decoration-image-wrapper img.decoration-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .main_section .desctop-hidden {
   position: absolute;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   padding: 0;
-  margin: 0px;
+  margin: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }
 
-.main_section .decoration-img {
-  width: 168px;
-  height: 100px;
-  background-image: url("../img/text-img-1x.webp");
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px
-}
-
 @media (max-width: 1439px) {
   .main_section .main_decoration {
     position: absolute;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     padding: 0;
-    margin: 0px;
+    margin: 0;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
   }
+
   .main_section .desctop-hidden {
     position: static;
     width: auto;
@@ -115,24 +131,29 @@
     justify-content: end;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
   }
-  .main_section .desctop-hidden p {
+
+  .main_section .desctop-hidden li {
     padding: 3px 15px;
     border-radius: 30px;
     border: 1px solid var(--black-color);
   }
-  .main_section .main-image {
+
+  .main-image-wrapper img.main-image {
     height: 550px;
-    background-image: url("../img/main-tablet-1x.webp");
-    background-size: cover;
-    background-position: center;
+    object-fit: contain;
   }
 }
 
 @media (max-width: 767px) {
+  .main_section .desctop-hidden {
+    justify-content: center;
+  }
   .main_section {
     padding: 80px 0 40px 0;
   }
+
   .main_section h1 {
     font-size: 38px;
     line-height: 44px;
@@ -147,10 +168,13 @@
     font-size: 14px;
     line-height: 18px;
   }
-  .main_section .main-image {
+
+  .main-image-wrapper img.main-image {
     height: 460px;
+    object-fit: cover;
   }
-  .main_section .desctop-hidden p {
+
+  .main_section .desctop-hidden li {
     padding: 4px 12px;
     border-radius: 30px;
     font-size: 14px;
