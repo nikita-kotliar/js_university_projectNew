@@ -23,9 +23,10 @@ const getCardsByPage = (arr, page) => {
   return arr.slice(start, end);
 };
 
-const uniqueIdFilter = arr => {
+const uniqueIdFilter = (arr = []) => {
   const uniqueIds = new Set();
   return arr.filter(obj => {
+    if (!obj?._id) return false;
     if (uniqueIds.has(obj._id)) return false;
     uniqueIds.add(obj._id);
     return true;
@@ -109,20 +110,19 @@ const renderCards = arr => {
 const onClick = e => {
   const startBtn = e.target.closest('[data-action="start_exercise_btn"]');
   const deleteBtn = e.target.closest('[data-action="delete_fav_card"]');
-  const card = e.target.closest('[data-component="fav_card"]');
 
   if (!startBtn && !deleteBtn) return;
 
   if (deleteBtn) {
     removeFromFav(deleteBtn.dataset.idDelBtn);
-
     checkStorage();
     return;
   }
 
   if (startBtn) {
-    const favs = getFav(LS_FAV);
+    const favs = getFav(LS_FAV) || [];
     const exercise = favs.find(el => el._id === startBtn.dataset.idStartBtn);
+
     if (exercise) {
       handlerStartBtn(exercise, true, true);
     }
@@ -173,7 +173,7 @@ if (refs.paginationCards) {
 export const checkStorage = () => {
   if (!document.querySelector('.favourite_exercises')) return;
 
-  const favsRaw = getFav(LS_FAV);
+  const favsRaw = getFav(LS_FAV) || [];
   const favs = uniqueIdFilter(favsRaw);
 
   if (!favs.length) {
@@ -227,7 +227,6 @@ export async function displayQuote() {
     console.error(error);
   }
 }
-
 
 window.addEventListener('resize', () => {
   page = 1;
