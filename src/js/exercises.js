@@ -106,17 +106,23 @@ function pressFilterBtn(event) {
 /* ================= LOAD EXERCISES ================= */
 
 async function loadExercises(event) {
-  let card = event.target.closest('.exercise');
+  const card = event.target.closest('.exercise');
   if (!card) return;
 
-  filter = card.querySelector('p').textContent;
-  name = card.querySelector('h1').textContent.toLowerCase();
+  const filterEl = card.querySelector('.exercise-filter');
+  const nameEl = card.querySelector('.exercise-subtitle');
+
+  if (!filterEl || !nameEl) return; 
+
+  filter = filterEl.textContent;
+  name = nameEl.textContent.toLowerCase();
 
   refs.exercisesTitle.innerHTML = `
     <ul class="exercises-title">
       Exercises / <span>${capitalize(name)}</span>
     </ul>
   `;
+
   refs.searchForm.style.display = 'block';
 
   page = 1;
@@ -124,6 +130,7 @@ async function loadExercises(event) {
 
   await fetchExercises();
 }
+
 
 async function fetchExercises(reset = true) {
   if (reset) localResponse = [];
