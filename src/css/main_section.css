@@ -149,7 +149,7 @@
 @media (max-width: 767px) {
   .main_section .desctop-hidden {
     justify-content: center;
-    padding: 4px 11px;
+
   }
   .main_section {
     padding: 80px 0 40px 0;
@@ -176,7 +176,7 @@
   }
 
   .main_section .desctop-hidden li {
-    padding: 4px 12px;
+    padding: 4px 11px;
     border-radius: 30px;
     font-size: 14px;
     line-height: 18px;
