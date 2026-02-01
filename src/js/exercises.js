@@ -305,7 +305,7 @@ function renderPagination(totalPages) {
         data-page="${targetPage}"
         ${disabled ? 'disabled' : ''}>
         <svg class="${icon} ${side}" width="20" height="20">
-          <use href="/js_university_projectNew/symbol-defs.svg#icon-${icon}-left"></use>
+          <use href="/js_university_projectNew/symbol-defs.svg#${icon}"></use>
         </svg>
       </button>
     </li>
@@ -323,8 +323,8 @@ function renderPagination(totalPages) {
     </li>
   `;
 
-  html += createArrow('left', 'icon-big', page - 2, page <= 2);
-  html += createArrow('left', 'icon-small', page - 1, page === 1);
+  html += createArrow('left', 'icon-big-left', page - 2, page <= 2);
+  html += createArrow('left', 'icon-small-left', page - 1, page === 1);
 
   let start = Math.max(1, page - 1);
   let end = Math.min(totalPages, page + 1);
@@ -352,8 +352,8 @@ function renderPagination(totalPages) {
     html += createPageBtn(totalPages);
   }
 
-  html += createArrow('right', 'icon-small', page + 1, page === totalPages);
-  html += createArrow('right', 'icon-big', page + 2, page >= totalPages - 1);
+  html += createArrow('right', 'icon-small-left', page + 1, page === totalPages);
+  html += createArrow('right', 'icon-big-left', page + 2, page >= totalPages - 1);
 
   refs.pagination.innerHTML = html;
 }
