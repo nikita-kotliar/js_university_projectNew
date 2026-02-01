@@ -305,7 +305,7 @@ function renderPagination(totalPages) {
         data-page="${targetPage}"
         ${disabled ? 'disabled' : ''}>
         <svg class="${icon} ${side}" width="20" height="20">
-          <use href="/js_university_projectNew/symbol-defs.svg#${icon}"></use>
+          <use href="/js_university_projectNew/symbol-defs.svg#icon-${icon}-left"></use>
         </svg>
       </button>
     </li>
