@@ -52,8 +52,11 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  padding: 8px;
   stroke: var(--white-color);
+}
+#form-close-btn {
+  width: 28px;
+  height: 28px;
 }
 
 #user-email {
@@ -140,4 +143,8 @@
   .form-send-btn {
     margin-top: 20px;
   }
+  #form-close-btn {
+  width: 24px;
+  height: 24px;
+}
 }
