@@ -10,7 +10,9 @@
   visibility: hidden;
   pointer-events: none;
 
-  transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+  transition:
+    opacity 250ms ease-in-out,
+    visibility 250ms ease-in-out;
 }
 
 .backdrop.is-open {
@@ -131,9 +133,14 @@
 
 @media (max-width: 767px) {
   .backdrop-container {
-    max-width: 335px;
+    width: 335px;
     padding: 40px 20px;
   }
+  .form-send-btn {
+    padding: 12px 56px;
+    width: 100%;
+  }
+
   #user-email {
     margin-top: 20px;
   }
@@ -144,7 +151,7 @@
     margin-top: 20px;
   }
   #form-close-btn svg {
-  width: 24px;
-  height: 24px;
-}
+    width: 24px;
+    height: 24px;
+  }
 }
