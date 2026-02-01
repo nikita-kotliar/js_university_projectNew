@@ -54,7 +54,7 @@
   right: 14px;
   stroke: var(--white-color);
 }
-#form-close-btn {
+#form-close-btn svg {
   width: 28px;
   height: 28px;
 }
@@ -143,7 +143,7 @@
   .form-send-btn {
     margin-top: 20px;
   }
-  #form-close-btn {
+  #form-close-btn svg {
   width: 24px;
   height: 24px;
 }
