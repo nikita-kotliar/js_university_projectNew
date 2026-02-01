@@ -1,13 +1,13 @@
-import{d as N,h as C}from"./assets/exercises_card-C9-7Fufu.js";import{i as p}from"./assets/vendor-I1I71QQ2.js";const i={filters:document.querySelector(".filters"),navButtons:document.querySelector(".nav-buttons"),musclesBtn:document.querySelector(".muscles-btn"),exercisesTitle:document.querySelector(".exercises-title"),searchForm:document.querySelector(".search-form"),loadMoreBtn:document.querySelector(".load-more-btn"),quoteContainer:document.querySelector(".quote"),pagination:document.querySelector(".pagination"),exercisesWrapper:document.querySelector(".exercises-div"),exercises:document.querySelector(".exercises-list")};let F=window.innerWidth<768?9:12,H=window.innerWidth<768?8:10,a=1,f="Muscles",T="Muscles",k="",x="",v="",m=[];N(i.quoteContainer);b();i.musclesBtn.classList.add("active-btn");i.filters.addEventListener("click",W);i.exercises.addEventListener("click",I);i.searchForm.addEventListener("input",O);var q;(q=i.loadMoreBtn)==null||q.addEventListener("click",loadMore);async function b(e=!0){e&&(a=1,i.exercises.innerHTML="");let t=`https://your-energy.b.goit.study/api/filters?filter=${f}&page=${a}&limit=${F}`;T.trim()&&(t+=`&name=${T}`);const n=await(await fetch(t)).json();if(!n.results.length){B();return}_(n.results),j(n.totalPages)}function _(e){const t=`
+import{d as N,h as C}from"./assets/exercises_card-C9-7Fufu.js";import{i as p}from"./assets/vendor-I1I71QQ2.js";const r={filters:document.querySelector(".filters"),navButtons:document.querySelector(".nav-buttons"),musclesBtn:document.querySelector(".muscles-btn"),exercisesTitle:document.querySelector(".exercises-title"),searchForm:document.querySelector(".search-form"),loadMoreBtn:document.querySelector(".load-more-btn"),quoteContainer:document.querySelector(".quote"),pagination:document.querySelector(".pagination"),exercisesWrapper:document.querySelector(".exercises-div"),exercises:document.querySelector(".exercises-list")};let F=window.innerWidth<768?9:12,H=window.innerWidth<768?8:10,a=1,f="Muscles",T="Muscles",k="",x="",v="",m=[];N(r.quoteContainer);b();r.musclesBtn.classList.add("active-btn");r.filters.addEventListener("click",W);r.exercises.addEventListener("click",I);r.searchForm.addEventListener("input",O);var q;(q=r.loadMoreBtn)==null||q.addEventListener("click",loadMore);async function b(e=!0){e&&(a=1,r.exercises.innerHTML="");let t=`https://your-energy.b.goit.study/api/filters?filter=${f}&page=${a}&limit=${F}`;T.trim()&&(t+=`&name=${T}`);const n=await(await fetch(t)).json();if(!n.results.length){B();return}_(n.results),j(n.totalPages)}function _(e){const t=`
     <ul class="exercises">
-      ${e.map(({name:s,filter:n,imgURL:r})=>`
+      ${e.map(({name:s,filter:n,imgURL:i})=>`
             <li class="exercise">
               <img
-                src="${r}?w=290&h=242"
+                src="${i}?w=290&h=242"
                 srcset="
-                  ${r}?w=335&h=225 335w,
-                  ${r}?w=225&h=225 225w,
-                  ${r}?w=290&h=242 290w
+                  ${i}?w=335&h=225 335w,
+                  ${i}?w=225&h=225 225w,
+                  ${i}?w=290&h=242 290w
                 "
                 sizes="(max-width: 767px) 335px,
                        (min-width: 768px) and (max-width: 1439px) 225px,
@@ -26,25 +26,25 @@ import{d as N,h as C}from"./assets/exercises_card-C9-7Fufu.js";import{i as p}fro
             </li>
           `).join("")}
     </ul>
-  `;i.exercises.insertAdjacentHTML("beforeend",t)}function W(e){var t;e.target.tagName==="BUTTON"&&((t=document.querySelector(".active-btn"))==null||t.classList.remove("active-btn"),e.target.classList.add("active-btn"),e.target.classList.contains("muscles-btn")?f="Muscles":e.target.classList.contains("bodyparts-btn")?f="Body parts":e.target.classList.contains("equipment-btn")&&(f="Equipment"),i.exercisesTitle.textContent="Exercises",i.searchForm.style.display="none",b(!0))}async function I(e){const t=e.target.closest(".exercise");if(!t)return;const s=t.querySelector(".exercise-filter"),n=t.querySelector(".exercise-subtitle");!s||!n||(x=s.textContent,v=n.textContent.toLowerCase(),i.exercisesTitle.innerHTML=`
+  `;r.exercises.insertAdjacentHTML("beforeend",t)}function W(e){var t;e.target.tagName==="BUTTON"&&((t=document.querySelector(".active-btn"))==null||t.classList.remove("active-btn"),e.target.classList.add("active-btn"),e.target.classList.contains("muscles-btn")?f="Muscles":e.target.classList.contains("bodyparts-btn")?f="Body parts":e.target.classList.contains("equipment-btn")&&(f="Equipment"),r.exercisesTitle.textContent="Exercises",r.searchForm.style.display="none",b(!0))}async function I(e){const t=e.target.closest(".exercise");if(!t)return;const s=t.querySelector(".exercise-filter"),n=t.querySelector(".exercise-subtitle");!s||!n||(x=s.textContent,v=n.textContent.toLowerCase(),r.exercisesTitle.innerHTML=`
     <ul class="exercises-title">
       Exercises / <span>${g(v)}</span>
     </ul>
-  `,i.searchForm.style.display="block",a=1,i.exercises.innerHTML="",await L())}async function L(e=!0){e&&(m=[]);let t=x.toLowerCase();t==="body parts"&&(t="bodypart");const s=`
+  `,r.searchForm.style.display="block",a=1,r.exercises.innerHTML="",await L())}async function L(e=!0){e&&(m=[]);let t=x.toLowerCase();t==="body parts"&&(t="bodypart");const s=`
     https://your-energy.b.goit.study/api/exercises?
     ${t}=${v}
     &keyword=${k}
     &page=${a}
     &limit=${H}
-  `.replace(/\s+/g,""),r=await(await fetch(s)).json();if(!r.results.length){B();return}m=r.results,A(r.results),j(r.totalPages)}async function A(e){i.exercises.innerHTML="",m=e;const t=`
+  `.replace(/\s+/g,""),i=await(await fetch(s)).json();if(!i.results.length){B();return}m=i.results,A(i.results),j(i.totalPages)}async function A(e){r.exercises.innerHTML="",m=e;const t=`
     <ul class="exercises-cards">
-      ${e.map(({name:s,_id:n,rating:r,burnedCalories:c,bodyPart:o,target:d,time:w})=>{let u=`${c} / ${w} min`,E="...",S=d;return r%1===0&&(r+=".0"),r=parseFloat(r).toFixed(1),s.length>32&&(s=s.slice(0,24)+"..."),window.innerWidth<1440&&(s.length>24&&(s=s.slice(0,20)+"..."),E="...",S="..."),window.innerWidth<768&&(u=`${c} /... min`,s.length>22&&(s=s.slice(0,18)+"...")),`
+      ${e.map(({name:s,_id:n,rating:i,burnedCalories:c,bodyPart:o,target:d,time:w})=>{let u=`${c} / ${w} min`,E="...",S=d;return i%1===0&&(i+=".0"),i=parseFloat(i).toFixed(1),s.length>32&&(s=s.slice(0,24)+"..."),window.innerWidth<1440&&(s.length>24&&(s=s.slice(0,20)+"..."),E="...",S="..."),window.innerWidth<768&&(u=`${c} /... min`,s.length>22&&(s=s.slice(0,18)+"...")),`
               <li class="exercise-information" data-id-card="${n}">
                 <div class="top-nav">
                   <div>
                     <p class="tag">Workout</p>
                     <span class="rating">
-                      ${r}
+                      ${i}
                       <svg class="star-icon" width="14" height="14">
                         <use href="/js_university_projectNew/symbol-defs.svg#icon-star"></use>
                       </svg>
@@ -88,7 +88,7 @@ import{d as N,h as C}from"./assets/exercises_card-C9-7Fufu.js";import{i as p}fro
               </li>
             `}).join("")}
     </ul>
-  `;i.exercises.insertAdjacentHTML("beforeend",t)}function O(e){k=e.target.value.trim().toLowerCase(),a=1,i.exercises.innerHTML="",L(!0)}function j(e){if(!i.pagination)return;if(e<=1){i.pagination.innerHTML="";return}let t="";const s=(o,d,w,u)=>`
+  `;r.exercises.insertAdjacentHTML("beforeend",t)}function O(e){k=e.target.value.trim().toLowerCase(),a=1,r.exercises.innerHTML="",L(!0)}function j(e){if(!r.pagination)return;if(e<=1){r.pagination.innerHTML="";return}let t="";const s=(o,d,w,u)=>`
     <li>
       <button
         name="Next page"
@@ -97,7 +97,7 @@ import{d as N,h as C}from"./assets/exercises_card-C9-7Fufu.js";import{i as p}fro
         data-page="${w}"
         ${u?"disabled":""}>
         <svg class="${d} ${o}" width="20" height="20">
-          <use href="/js_university_projectNew/symbol-defs.svg#${d}"></use>
+          <use href="/js_university_projectNew/symbol-defs.svg#icon-${d}-left"></use>
         </svg>
       </button>
     </li>
@@ -111,9 +111,9 @@ import{d as N,h as C}from"./assets/exercises_card-C9-7Fufu.js";import{i as p}fro
         ${o}
       </button>
     </li>
-  `;t+=s("left","icon-big",a-2,a<=2),t+=s("left","icon-small",a-1,a===1);let r=Math.max(1,a-1),c=Math.min(e,a+1);a===1&&(c=Math.min(e,3)),a===e&&(r=Math.max(1,e-2)),r>1&&(t+=n(1),r>2&&e>4&&(t+='<li class="dots">...</li>'));for(let o=r;o<=c;o++)t+=n(o);c<e&&(c<e-1&&e>4&&(t+='<li class="dots">...</li>'),t+=n(e)),t+=s("right","icon-small",a+1,a===e),t+=s("right","icon-big",a+2,a>=e-1),i.pagination.innerHTML=t}i.pagination.addEventListener("click",e=>{const t=e.target.closest(".pagination-btn");if(!t)return;const s=Number(t.dataset.page);s!==a&&(a=s,i.exercises.innerHTML="",x?L(!1):b(!1))});i.exercises.addEventListener("click",e=>{const t=e.target.closest('[data-action="start"]');if(!t)return;const s=m.find(n=>n._id===t.dataset.id);C(s)});function B(){var e;i.exercises.innerHTML=`
+  `;t+=s("left","icon-big",a-2,a<=2),t+=s("left","icon-small",a-1,a===1);let i=Math.max(1,a-1),c=Math.min(e,a+1);a===1&&(c=Math.min(e,3)),a===e&&(i=Math.max(1,e-2)),i>1&&(t+=n(1),i>2&&e>4&&(t+='<li class="dots">...</li>'));for(let o=i;o<=c;o++)t+=n(o);c<e&&(c<e-1&&e>4&&(t+='<li class="dots">...</li>'),t+=n(e)),t+=s("right","icon-small",a+1,a===e),t+=s("right","icon-big",a+2,a>=e-1),r.pagination.innerHTML=t}r.pagination.addEventListener("click",e=>{const t=e.target.closest(".pagination-btn");if(!t)return;const s=Number(t.dataset.page);s!==a&&(a=s,r.exercises.innerHTML="",x?L(!1):b(!1))});r.exercises.addEventListener("click",e=>{const t=e.target.closest('[data-action="start"]');if(!t)return;const s=m.find(n=>n._id===t.dataset.id);C(s)});function B(){var e;r.exercises.innerHTML=`
     <p class="no-results-paragraph">
       Unfortunately, <span>no results</span> were found.
     </p>
-  `,(e=i.loadMoreBtn)==null||e.style.setProperty("display","none"),i.pagination&&(i.pagination.innerHTML="")}function g(e){return e[0].toUpperCase()+e.slice(1)}const M=document.getElementById("progress-scroll");M&&M.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".progress-wrap path");if(e){const t=e.getTotalLength();e.style.transition="none",e.style.strokeDasharray=`${t} ${t}`,e.style.strokeDashoffset=`${t}`,e.getBoundingClientRect(),e.style.transition="stroke-dashoffset 10ms linear";const s=()=>{const r=window.scrollY||document.documentElement.scrollTop,c=document.documentElement.scrollHeight-window.innerHeight,o=t-r*t/c;e.style.strokeDashoffset=`${o}`};window.addEventListener("scroll",s);const n=50;window.addEventListener("scroll",()=>{if(window.scrollY>n){const r=document.querySelector(".progress-wrap");r&&r.classList.add("active-progress")}else{const r=document.querySelector(".progress-wrap");r&&r.classList.remove("active-progress")}})}});async function D(e){const t=await fetch("https://your-energy.b.goit.study/api/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:e})});if(t.status===409)throw new Error("EMAIL_EXISTS");if(!t.ok)throw new Error("REQUEST_FAILED");return await t.json()}const l=document.querySelector("input[name=email]"),h=document.querySelector(".footer-send-button"),$="feedback-form-state";function y(e){return/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(e)}function z(){localStorage.setItem($,JSON.stringify({email:l.value}))}function R(){const e=localStorage.getItem($);if(!e)return;const{email:t}=JSON.parse(e);l.value=t||"",h.disabled=!y(l.value)}R();l.addEventListener("input",()=>{z(),h.disabled=!y(l.value)});l.addEventListener("change",()=>{y(l.value)||p.info({message:"Please enter a valid email address"})});h.addEventListener("click",async e=>{if(e.preventDefault(),!!y(l.value))try{await D(l.value),p.success({title:"Success",message:"Welcome to energy.flow world!"}),l.value="",h.disabled=!0,localStorage.removeItem($)}catch(t){t.message==="EMAIL_EXISTS"?p.warning({message:"Email already exists"}):p.error({title:"Error",message:"Something went wrong! Please try again later"})}});
+  `,(e=r.loadMoreBtn)==null||e.style.setProperty("display","none"),r.pagination&&(r.pagination.innerHTML="")}function g(e){return e[0].toUpperCase()+e.slice(1)}const M=document.getElementById("progress-scroll");M&&M.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".progress-wrap path");if(e){const t=e.getTotalLength();e.style.transition="none",e.style.strokeDasharray=`${t} ${t}`,e.style.strokeDashoffset=`${t}`,e.getBoundingClientRect(),e.style.transition="stroke-dashoffset 10ms linear";const s=()=>{const i=window.scrollY||document.documentElement.scrollTop,c=document.documentElement.scrollHeight-window.innerHeight,o=t-i*t/c;e.style.strokeDashoffset=`${o}`};window.addEventListener("scroll",s);const n=50;window.addEventListener("scroll",()=>{if(window.scrollY>n){const i=document.querySelector(".progress-wrap");i&&i.classList.add("active-progress")}else{const i=document.querySelector(".progress-wrap");i&&i.classList.remove("active-progress")}})}});async function D(e){const t=await fetch("https://your-energy.b.goit.study/api/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:e})});if(t.status===409)throw new Error("EMAIL_EXISTS");if(!t.ok)throw new Error("REQUEST_FAILED");return await t.json()}const l=document.querySelector("input[name=email]"),h=document.querySelector(".footer-send-button"),$="feedback-form-state";function y(e){return/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(e)}function z(){localStorage.setItem($,JSON.stringify({email:l.value}))}function R(){const e=localStorage.getItem($);if(!e)return;const{email:t}=JSON.parse(e);l.value=t||"",h.disabled=!y(l.value)}R();l.addEventListener("input",()=>{z(),h.disabled=!y(l.value)});l.addEventListener("change",()=>{y(l.value)||p.info({message:"Please enter a valid email address"})});h.addEventListener("click",async e=>{if(e.preventDefault(),!!y(l.value))try{await D(l.value),p.success({title:"Success",message:"Welcome to energy.flow world!"}),l.value="",h.disabled=!0,localStorage.removeItem($)}catch(t){t.message==="EMAIL_EXISTS"?p.warning({message:"Email already exists"}):p.error({title:"Error",message:"Something went wrong! Please try again later"})}});
 //# sourceMappingURL=index.js.map
