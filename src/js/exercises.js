@@ -95,7 +95,6 @@ function makeFilterCards(items) {
   refs.exercises.insertAdjacentHTML('beforeend', markup);
 }
 
-/* ================= FILTER BUTTONS ================= */
 
 function pressFilterBtn(event) {
   if (event.target.tagName !== 'BUTTON') return;

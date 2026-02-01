@@ -247,6 +247,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 20px;
 }
 .favourite_exercises .section_title {
   font-size: 44px;
@@ -323,6 +324,10 @@
 }
 
 @media (max-width: 767px) {
+  .favourite_exercises .exercise-information {
+    width: 100%;
+    height: unset;
+  }
   .favourite_exercises .quote-bottom-container {
     margin-top: 20px;
     gap: 20px;
@@ -354,5 +359,8 @@
     font-size: 28px;
     line-height: 38px;
     margin-bottom: 20px;
+  }
+  .favourite_exercises  {
+    margin-top: 80px;
   }
 }

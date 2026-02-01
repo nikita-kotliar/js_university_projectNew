@@ -343,8 +343,6 @@
   fill: transparent;
 }
 
-
-
 .exercises-section .exercises-cards {
   display: flex;
   row-gap: 32px;
@@ -534,7 +532,7 @@
     width: 335px;
     height: 225px;
   }
-  .exercises-section .exercise img{
+  .exercises-section .exercise img {
     height: unset;
   }
   .exercises-section .quote {
@@ -556,7 +554,8 @@
     width: 100%;
   }
   .exercises-section .exercise-information {
-    width: 335px;
+    max-width: 335px;
+    width: 100%;
   }
   .exercises-section .exercises-cards {
     gap: 20px;
@@ -565,5 +564,14 @@
   .exercises-section .pagination {
     width: 100%;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 375px) {
+  .exercises-section .exercise-information {
+    height: unset;
+  }
+  .exercises-section .quote-text-icon-commas {
+    display: none;
   }
 }
