@@ -565,12 +565,13 @@
     width: 100%;
     flex-wrap: wrap;
   }
-}
-
-@media (max-width: 375px) {
   .exercises-section .exercise-information {
     height: unset;
   }
+}
+
+@media (max-width: 375px) {
+  
   .exercises-section .quote-text-icon-commas {
     display: none;
   }
