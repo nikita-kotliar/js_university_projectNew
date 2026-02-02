@@ -1,6 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-
+import handlerStartBtn from './exercises_card.js';
 export async function addExerciseRatingById(id, { email, rate, comment }) {
   const url = `https://your-energy.b.goit.study/api/exercises/${id}/rating`;
   rate = Number(rate);
@@ -35,13 +35,13 @@ const ratingStarValue = document.querySelector('.rating-star-value');
 const backdropForm = document.querySelector('.backdrop-form');
 
 let exerciseId = null;
+let previousExercise = null; 
+
 const userFeedback = {
   rate: 0,
   email: '',
   comment: '',
 };
-
-formSendBtn.disabled = false;
 
 function resetForm() {
   userEmail.value = '';
@@ -49,45 +49,48 @@ function resetForm() {
   userFeedback.rate = 0;
   userFeedback.comment = '';
   userFeedback.email = '';
-
   ratingStarValue.textContent = '0.0';
-
   const ratingStarIcons = document.querySelectorAll('.rating-star-icons');
   ratingStarIcons.forEach(icon => {
     icon.style.fill = 'var(--white-20)';
   });
 }
 
-formCloseBtn.addEventListener('click', () => {
-  backdrop.classList.remove('is-open');
-});
+function handleEscClose(event) {
+  if (event.key === 'Escape') closeRateModal(true);
+}
 
+function closeRateModal(returnCard = false) {
+  backdrop.classList.remove('is-open');
+  document.removeEventListener('keydown', handleEscClose);
+  if (returnCard && previousExercise) handlerStartBtn(previousExercise);
+}
+
+formCloseBtn.addEventListener('click', () => closeRateModal(true));
 backdrop.addEventListener('click', event => {
-  if (event.target === backdrop) backdrop.classList.remove('is-open');
+  if (event.target === backdrop) closeRateModal(true);
 });
 
 ratingWrapper.addEventListener('click', event => {
-  const ratingStarIcons = document.querySelectorAll('.rating-star-icons');
   if (!event.target.dataset.id) return;
-
   userFeedback.rate = Number(event.target.dataset.id);
+  ratingStarValue.textContent = `${userFeedback.rate}.0`;
 
+  const ratingStarIcons = document.querySelectorAll('.rating-star-icons');
   for (let i = 0; i < 5; i++) {
     ratingStarIcons[i].style.fill =
       i < userFeedback.rate ? 'var(--orange-color)' : 'var(--white-20)';
   }
-
-  ratingStarValue.textContent = `${userFeedback.rate}.0`;
 });
 
-export function handlerOpenRate(id) {
+export function handlerOpenRate(id, exercise = null) {
   exerciseId = id;
+  previousExercise = exercise;
   backdrop.classList.add('is-open');
+  document.addEventListener('keydown', handleEscClose);
 }
 
-backdropForm.addEventListener('submit', handlerAddRate);
-
-async function handlerAddRate(event) {
+backdropForm.addEventListener('submit', async event => {
   event.preventDefault();
   userFeedback.email = userEmail.value.trim();
   userFeedback.comment = userComment.value.trim() || undefined;
@@ -98,31 +101,32 @@ async function handlerAddRate(event) {
       position: 'topRight',
       color: 'red',
     });
-    return; 
+    return;
   }
 
-  if (userFeedback.email) {
-    try {
-      await addExerciseRatingById(exerciseId, userFeedback);
-      iziToast.success({
-        message: 'Your rating is accepted',
-        position: 'topRight',
-        color: 'green',
-      });
-      resetForm();
-      backdrop.classList.remove('is-open');
-    } catch (error) {
-      iziToast.error({
-        message: `${error.message}`,
-        position: 'topRight',
-        color: 'red',
-      });
-    }
-  } else {
+  if (!userFeedback.email) {
     iziToast.error({
       message: 'Please enter your email',
       position: 'topRight',
       color: 'red',
     });
+    return;
   }
-}
+
+  try {
+    await addExerciseRatingById(exerciseId, userFeedback);
+    iziToast.success({
+      message: 'Your rating is accepted',
+      position: 'topRight',
+      color: 'green',
+    });
+    resetForm();
+    closeRateModal(); 
+  } catch (error) {
+    iziToast.error({
+      message: `${error.message}`,
+      position: 'topRight',
+      color: 'red',
+    });
+  }
+});

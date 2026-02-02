@@ -1,4 +1,3 @@
-
 import * as localStorageLogic from './localalStorageLogical';
 import { checkStorage } from './favourite_exercises';
 import { handlerOpenRate } from './rate';
@@ -14,6 +13,8 @@ if (tempArray) {
   });
 }
 
+let currentExercise = null; 
+
 function capitalizeFirstLetter(string) {
   return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 }
@@ -23,6 +24,7 @@ export default function handlerStartBtn(
   isFav = false,
   isFavouritePage = false
 ) {
+  currentExercise = exercise;
   isFavourite = isFav;
   if (!isFavourite) {
     savedExercises.forEach(element => {
@@ -33,6 +35,8 @@ export default function handlerStartBtn(
   renderModal(exercise);
   cardBackdrop.classList.add('card-is-open');
   document.body.classList.add('not-scrollable');
+
+  document.addEventListener('keydown', handleEscClose);
 
   if (isFavourite === true) {
     document.querySelector('.add-favourite-btn').innerHTML = `Remove from
@@ -128,6 +132,7 @@ function renderModal(data, isFavouritePage) {
       </div>
     </div>`;
   cardBackdrop.innerHTML = markup;
+
   const arrStar = document.querySelectorAll('.star-rating-icon');
   for (let i = 0; i < Math.round(data.rating); ++i) {
     arrStar[i].style.fill = '#eea10c';
@@ -155,21 +160,23 @@ function renderModal(data, isFavouritePage) {
     checkStorage();
   });
 
-  document.getElementById('close-card').addEventListener('click', () => {
-    cardBackdrop.classList.remove('card-is-open');
-    document.body.classList.remove('not-scrollable');
-  });
-
+  document.getElementById('close-card').addEventListener('click', closeModal);
   cardBackdrop.addEventListener('click', event => {
-    if (event.target === cardBackdrop) {
-      cardBackdrop.classList.remove('card-is-open');
-      document.body.classList.remove('not-scrollable');
-    }
+    if (event.target === cardBackdrop) closeModal();
   });
 
   document.querySelector('.give-rating-btn').addEventListener('click', () => {
-    cardBackdrop.classList.remove('card-is-open');
-    document.body.classList.remove('not-scrollable');
-    handlerOpenRate(data._id);
+    closeModal();
+    handlerOpenRate(data._id, currentExercise);
   });
+}
+
+function handleEscClose(event) {
+  if (event.key === 'Escape') closeModal();
+}
+
+function closeModal() {
+  cardBackdrop.classList.remove('card-is-open');
+  document.body.classList.remove('not-scrollable');
+  document.removeEventListener('keydown', handleEscClose);
 }

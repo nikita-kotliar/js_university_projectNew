@@ -115,7 +115,6 @@ function pressFilterBtn(event) {
   fetchFilters(true);
 }
 
-/* ================= LOAD EXERCISES ================= */
 
 async function loadExercises(event) {
   const card = event.target.closest('.exercise');
@@ -371,8 +370,6 @@ refs.pagination.addEventListener('click', e => {
   filter ? fetchExercises(false) : fetchFilters(false);
 });
 
-/* ================= START BTN ================= */
-
 refs.exercises.addEventListener('click', event => {
   const btn = event.target.closest('[data-action="start"]');
   if (!btn) return;
@@ -380,8 +377,6 @@ refs.exercises.addEventListener('click', event => {
   const exercise = localResponse.find(el => el._id === btn.dataset.id);
   handlerStartBtn(exercise);
 });
-
-/* ================= HELPERS ================= */
 
 function showNoResults() {
   refs.exercises.innerHTML = `
@@ -396,5 +391,7 @@ function showNoResults() {
 }
 
 function capitalize(str) {
-  return str[0].toUpperCase() + str.slice(1);
+  const clean = str.trim();
+  return clean[0].toUpperCase() + clean.slice(1);
 }
+

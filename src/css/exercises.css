@@ -3,6 +3,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.exercises-section {
+  padding-bottom: 132px;
+}
 .exercises-section .exercises-title {
   font-weight: 400;
   font-size: 44px;
@@ -511,9 +514,15 @@
   .exercises-section .exercises-cards {
     width: unset;
   }
+  .exercises-section {
+    padding-bottom: 100px;
+  }
 }
 
 @media (max-width: 767px) {
+  .exercises-section {
+    padding-bottom: 80px;
+  }
   .exercises-section .exercises-title {
     font-size: 28px;
     line-height: 38px;
@@ -571,7 +580,6 @@
 }
 
 @media (max-width: 375px) {
-  
   .exercises-section .quote-text-icon-commas {
     display: none;
   }
