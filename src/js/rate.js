@@ -121,7 +121,7 @@ backdropForm.addEventListener('submit', async event => {
       color: 'green',
     });
     resetForm();
-    closeRateModal(); 
+    closeRateModal(true); 
   } catch (error) {
     iziToast.error({
       message: `${error.message}`,
